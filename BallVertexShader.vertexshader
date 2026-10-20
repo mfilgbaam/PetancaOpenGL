@@ -1,0 +1,27 @@
+#version 330 core
+
+// Input vertex data, different for all executions of this shader.
+layout(location = 0) in vec3 vertexPos; // the position variable has attribute position 0
+//layout (location = 1) in vec3 normalCoords;
+
+out vec3 fragPos;
+out vec3 normalRes;
+
+uniform mat4 model;
+uniform mat4 transform; //mvp
+uniform vec3 normalCoords;
+
+void main(){
+
+    gl_Position.xyz = vertexPos;
+    gl_Position.w = 1.0;
+
+	fragPos = vec3(model*gl_Position);
+
+
+	//normals should also be transformed in world space, but only for scaling and rotating
+	normalRes = mat3(transpose(inverse(model))) * normalCoords;
+
+	gl_Position = transform * gl_Position;
+}
+

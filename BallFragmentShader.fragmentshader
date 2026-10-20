@@ -1,0 +1,22 @@
+#version 330 core
+
+in vec3 normalRes;// the input variable from the vertex shader (same name and same type)  
+in vec3 fragPos;
+
+
+// Output data
+out vec4 fragColor;
+
+uniform vec3 lightColor;
+uniform vec3 lightPos;
+uniform vec3 viewPos;
+uniform vec3 Pos;
+uniform vec4 color;
+void main()
+{
+	
+	
+	
+	fragColor = (fragPos.y + 0.02) * (color + (fragPos.z - Pos.z) * 1.5) * 10;
+
+}
