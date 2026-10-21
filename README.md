@@ -1,4 +1,4 @@
-#Controls
+# Controls
 
 Camera Movement: WASD  
 Camera Reset: Space  
